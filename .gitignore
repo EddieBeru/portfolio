@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+dist/
+.astro/
+.output/
+.vercel/
+.netlify/
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Herramientas de agentes
+.superpowers/
+.claude/settings.local.json
+
+# Sistema
+.DS_Store
+.directory
+Thumbs.db
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
