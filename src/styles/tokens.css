@@ -25,6 +25,21 @@
   --radius-lg: 18px;
   --radius-full: 999px;
 
+  /* Familias */
+  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-body: 'Supreme', system-ui, sans-serif;
+  --font-micro: 'Sono Variable', ui-monospace, monospace;
+
+  /* Escala modular, ratio 1.25 */
+  --text-step--1: 0.8125rem;
+  --text-step-0: 1.0625rem;
+  --text-step-1: 1.3125rem;
+  --text-step-2: 1.625rem;
+  --text-step-3: 2.0625rem;
+  --text-step-4: 2.5625rem;
+  --text-step-5: 3.1875rem;
+  --text-display: clamp(2.5rem, 6vw, 4.5rem);
+
   /* Motion */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }

@@ -1,0 +1,27 @@
+/* Cabinet Grotesk y Supreme son de Fontshare (Indian Type Foundry).
+   Licencias en docs/licencias/. Sono llega vía Fontsource y trae su propio
+   @font-face; se importa desde el layout. */
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../fonts/CabinetGrotesk-Extrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('../fonts/Supreme-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Supreme';
+  src: url('../fonts/Supreme-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
