@@ -14,15 +14,15 @@ Reglas para llenarlo:
 ## 1. Identidad
 
 ```
-Nombre para firmar:        (nombre completo, o alias si prefieres)
-Cómo te presentas:         (una línea, en tus palabras — "estudiante de sistemas al que le gusta X")
-Carrera exacta:
-Universidad:               (¿la ponemos? di sí/no)
-Ciudad / país:             (opcional, di si NO quieres que aparezca)
+Nombre para firmar:        EddieBeru
+Cómo te presentas:         persona tranqui pero apasionada en sus gustos. me gustan los gatos y todo aquello chill aunque tambien adoro hacer loco de vez en cuando.
+Carrera exacta:            Ingeniería en sistemas de la información
+Universidad:               Universidad Nacional
+Ciudad / país:             Costa Rica
 
 GitHub:                    EddieBeru
-Email de contacto:         bermudezurena@gmail.com   ← ¿confirmas este, o prefieres otro?
-LinkedIn:
+Email de contacto:         eddieberu@outlook.com
+LinkedIn:                  https://www.linkedin.com/in/eddieberu/
 Otros (itch.io, Twitch, Bluesky, blog, lo que sea):
 ```
 
@@ -33,18 +33,36 @@ Otros (itch.io, Twitch, Bluesky, blog, lo que sea):
 El eje narrativo del sitio. No es un CV, es la curva.
 
 ```
-Año de ingreso a la carrera:
-Semestre / año actual:
-Fecha estimada de graduación:
+Año de ingreso a la carrera: 2024
+Semestre / año actual:        6to semestre 
+Fecha estimada de graduación: 2028
 ```
 
 **Hitos** — 3 a 6. Momentos de antes-y-después, no logros de currículum. Ejemplos del tipo de cosa que busco: *"el primer programa que corrió sin que yo entendiera por qué"*, *"la materia que casi me saca"*, *"el día que entendí qué era un puntero"*, *"cuando dejé de copiar de Stack Overflow y empecé a leer docs"*.
 
 ```
 [copia este bloque]
-Cuándo:        (mes/año, o "3er semestre" — aproximado está bien)
-Qué pasó:
-Por qué marcó un antes y después:
+Cuándo:        2023
+Qué pasó:       me empecé a interesar en la programación más en serio y metí mano en c# con .net
+Por qué marcó un antes y después: aprendí montones y nació JellyfinUWPClient
+```
+```
+[copia este bloque]
+Cuándo:        2024
+Qué pasó:       entré a la carrera
+Por qué marcó un antes y después: empecé a aprender de manera formal todo lo relacionado a la programación y buenas prácticas. con c++ al principio.
+```
+```
+[copia este bloque]
+Cuándo:        2025 1er ciclo
+Qué pasó:       hice simulador de ecosistemas
+Por qué marcó un antes y después: para un curso, hice el proyecto de simulador de ecosistemas. me enseñó a que hacer simulaciones y verlas ocurrir me agrada, además de principios de la programación super útiles.
+```
+```
+[copia este bloque]
+Cuándo:        2026
+Qué pasó:       nace ubot
+Por qué marcó un antes y después: con efraín, se creó ubot el cual me enseñó montones de frontend y manejo de deploys.
 ```
 
 ---
