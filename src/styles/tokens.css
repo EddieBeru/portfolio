@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Superficies */
+  --color-bg: oklch(0.16 0.020 205);
+  --color-surface: oklch(0.21 0.024 203);
+  --color-surface-2: oklch(0.26 0.026 202);
+  --color-line: oklch(0.34 0.024 200);
+
+  /* Tinta */
+  --color-ink: oklch(0.95 0.010 200);
+  --color-ink-2: oklch(0.78 0.014 200);
+  --color-ink-3: oklch(0.66 0.016 200);
+
+  /* Marca */
+  --color-neon: oklch(0.84 0.130 192);
+  --color-celeste: oklch(0.80 0.110 240);
+  --color-moss: oklch(0.55 0.119 160);
+  --color-moss-text: oklch(0.72 0.115 160);
+  --color-amber: oklch(0.78 0.100 62);
+
+  /* Radios */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+
+  /* Motion */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  /* Escala z semántica. Nunca valores arbitrarios. */
+  --z-base: 0;
+  --z-sticker: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+  --z-tooltip: 60;
+
+  /* Duraciones */
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 420ms;
+}
