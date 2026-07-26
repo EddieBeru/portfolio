@@ -1,0 +1,36 @@
+---
+import '@fontsource-variable/sono';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+// Astro.site solo existe cuando corre el build real. Al renderizar por la API
+// de contenedor (los tests) no hay sitio configurado, así que cae al origen
+// de la petición en vez de reventar.
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+  </head>
+  <body>
+    <a class="saltar-al-contenido" href="#contenido">Saltar al contenido</a>
+    <main id="contenido">
+      <slot />
+    </main>
+    <footer>
+      <p>EddieBeru · Costa Rica</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+@import './tokens.css';
+@import './fonts.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-neon);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-neon);
+  outline-offset: 2px;
+}
+
+.saltar-al-contenido {
+  position: absolute;
+  left: 8px;
+  top: -100%;
+  z-index: var(--z-toast);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-neon);
+  color: var(--color-bg);
+  font-family: var(--font-micro);
+  transition: top var(--dur-fast) var(--ease-out-quint);
+}
+
+.saltar-al-contenido:focus-visible {
+  top: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}
