@@ -255,7 +255,7 @@ Que `enseñó` e `imagen` sean obligatorios en el schema es deliberado: son los 
 
 ## Pendientes
 
-- Confirmar si el repo de OmniRPG es privado antes de decidir cómo enlazarlo.
+- OmniRPG es privado (confirmado). Su página no lleva enlace a repo; se dice que es privado en vez de enlazar al vacío.
 - Recuperar, si se puede, la cuenta de desarrollador de Microsoft Store para las capturas de JellyfinUWPClient.
-- Capturas del cliente de OmniRPG en Godot.
+- Capturas pendientes de entrega. Las carpetas están creadas y documentadas en `src/assets/README.md`.
 - Decidir si ConocimientoWebDev y PWA-demo se fusionan en una entrada: son el mismo curso y comparten componentes.
