@@ -1,0 +1,195 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Chip from '../../components/Chip.astro';
+import { MARCAS } from '../../components/registro';
+
+const proyectos = (await getCollection('proyectos')).sort(
+  (a, b) => a.data.orden - b.data.orden,
+);
+const porNivel = (nivel: number) => proyectos.filter((p) => p.data.nivel === nivel);
+---
+
+<Base
+  title="Proyectos — EddieBeru"
+  description="Trece proyectos: los que cargan el peso, los que están a medias y los que fueron tarea."
+>
+  <div class="pagina">
+    <h1>Proyectos</h1>
+
+    <section class="destacados">
+      {
+        porNivel(1).map((proyecto) => {
+          const Marca = proyecto.data.marca ? MARCAS[proyecto.data.marca] : null;
+          return (
+            <a class="panel" href={`/proyectos/${proyecto.id}`}>
+              {Marca && (
+                <span class="marca">
+                  <Marca size={40} />
+                </span>
+              )}
+              <h2>{proyecto.data.nombre}</h2>
+              <p>{proyecto.data.linea}</p>
+              <ul class="stack">
+                {proyecto.data.stack.slice(0, 3).map((pieza) => (
+                  <li>
+                    <Chip>{pieza}</Chip>
+                  </li>
+                ))}
+              </ul>
+            </a>
+          );
+        })
+      }
+    </section>
+
+    <section class="breves">
+      <h2 class="titulo-seccion">También</h2>
+      {
+        porNivel(2).map((proyecto) => (
+          <a class="breve" href={`/proyectos/${proyecto.id}`}>
+            <h3>{proyecto.data.nombre}</h3>
+            <p>{proyecto.data.linea}</p>
+          </a>
+        ))
+      }
+    </section>
+
+    <section class="curso">
+      <h2 class="titulo-seccion">Trabajo de curso y experimentos</h2>
+      <p class="aclaracion">
+        Un portafolio honesto admite que esto fue tarea. Entran por lo que dejaron, no por
+        lo que aparentan.
+      </p>
+      <ul class="lista">
+        {
+          porNivel(3).map((proyecto) => (
+            <li>
+              <span class="nombre">{proyecto.data.nombre}</span>
+              <span class="que-queda">{proyecto.data.enseño}</span>
+              {proyecto.data.repo && <a href={proyecto.data.repo}>repo</a>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .pagina {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 0 24px 96px;
+  }
+  h1 {
+    font-size: var(--text-display);
+    margin: 0 0 48px;
+  }
+  .destacados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .panel {
+    display: block;
+    padding: 28px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color var(--dur-base) var(--ease-out-quint);
+  }
+  /* El primero pesa más que los otros tres: los niveles no son una retícula. */
+  .panel:first-child {
+    grid-column: 1 / -1;
+  }
+  .panel:hover {
+    border-color: var(--color-neon);
+  }
+  .marca {
+    display: block;
+    color: var(--color-neon);
+    margin-bottom: 14px;
+  }
+  .panel h2 {
+    margin: 0 0 6px;
+    font-size: var(--text-step-2);
+  }
+  .panel p {
+    margin: 0 0 16px;
+    color: var(--color-ink-2);
+  }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .titulo-seccion {
+    margin: 72px 0 20px;
+    font-size: var(--text-step-2);
+    color: var(--color-ink-2);
+  }
+  .breves {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .breves .titulo-seccion {
+    grid-column: 1 / -1;
+  }
+  .breve {
+    padding: 20px;
+    border-top: 1px solid var(--color-line);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color var(--dur-base) var(--ease-out-quint);
+  }
+  .breve:hover {
+    border-color: var(--color-neon);
+  }
+  .breve h3 {
+    margin: 0 0 6px;
+    font-size: var(--text-step-1);
+  }
+  .breve p {
+    margin: 0;
+    color: var(--color-ink-3);
+    font-size: var(--text-step--1);
+  }
+  .aclaracion {
+    color: var(--color-ink-3);
+    margin: 0 0 20px;
+  }
+  .lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-micro);
+    font-size: var(--text-step--1);
+  }
+  .lista li {
+    display: grid;
+    grid-template-columns: minmax(160px, 200px) 1fr auto;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--color-line);
+    align-items: baseline;
+  }
+  .nombre {
+    color: var(--color-ink);
+  }
+  .que-queda {
+    color: var(--color-ink-3);
+  }
+  @media (max-width: 640px) {
+    .lista li {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+</style>

@@ -2,6 +2,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { describe, expect, it } from 'vitest';
 import { getCollection } from 'astro:content';
 import Proyecto from '../src/pages/proyectos/[slug].astro';
+import Indice from '../src/pages/proyectos/index.astro';
 
 async function renderProyecto(id: string) {
   const proyectos = await getCollection('proyectos');
@@ -12,6 +13,11 @@ async function renderProyecto(id: string) {
     props: { proyecto },
     params: { slug: id },
   });
+}
+
+async function renderIndice() {
+  const container = await AstroContainer.create();
+  return container.renderToString(Indice);
 }
 
 describe('página de proyecto', () => {
@@ -35,6 +41,30 @@ describe('página de proyecto', () => {
     for (const proyecto of (await getCollection('proyectos')).filter((p) => p.data.nivel <= 2)) {
       const html = await renderProyecto(proyecto.id);
       expect(html, `${proyecto.id} salió sin imagen`).toMatch(/<svg|<img/);
+    }
+  });
+});
+
+describe('índice de proyectos', () => {
+  it('lista los trece', async () => {
+    const html = await renderIndice();
+    for (const proyecto of await getCollection('proyectos')) {
+      expect(html, `falta ${proyecto.data.nombre}`).toContain(proyecto.data.nombre);
+    }
+  });
+
+  it('nombra la sección de nivel 3 por lo que es', async () => {
+    expect(await renderIndice()).toMatch(/trabajo de curso y experimentos/i);
+  });
+
+  it('solo enlaza a página propia los de nivel 1 y 2', async () => {
+    const html = await renderIndice();
+    const proyectos = await getCollection('proyectos');
+    for (const proyecto of proyectos.filter((p) => p.data.nivel === 3)) {
+      expect(html).not.toContain(`/proyectos/${proyecto.id}"`);
+    }
+    for (const proyecto of proyectos.filter((p) => p.data.nivel <= 2)) {
+      expect(html).toContain(`/proyectos/${proyecto.id}`);
     }
   });
 });
