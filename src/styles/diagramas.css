@@ -1,0 +1,116 @@
+/* Sistema visual de los diagramas. Vive fuera de los componentes a propósito:
+   los siete comparten el mismo lienzo y el mismo vocabulario de formas, y
+   duplicar estas reglas en siete bloques <style> las dejaría desincronizadas. */
+
+.diagrama {
+  width: 100%;
+  height: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+/* Cajas */
+.diag-nodo {
+  fill: var(--color-surface-2);
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+}
+
+.diag-nodo-acento {
+  fill: var(--color-surface-2);
+  stroke: var(--color-neon);
+  stroke-width: 2;
+}
+
+.diag-nodo-voz {
+  fill: var(--color-surface-2);
+  stroke: var(--color-celeste);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+
+.diag-panel {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+}
+
+.diag-chip {
+  fill: var(--color-surface);
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+}
+
+/* Puntos y nodos de árbol */
+.diag-marcado {
+  fill: var(--color-neon);
+  stroke: none;
+}
+
+.diag-apagado {
+  fill: var(--color-surface-2);
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+}
+
+/* Texto */
+.diag-et {
+  fill: var(--color-ink);
+  font-family: var(--font-micro);
+  font-size: 14px;
+  text-anchor: middle;
+}
+
+.diag-et-menor {
+  fill: var(--color-ink-3);
+  font-family: var(--font-micro);
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.diag-et-izq {
+  fill: var(--color-ink-2);
+  font-family: var(--font-micro);
+  font-size: 13px;
+  text-anchor: start;
+}
+
+.diag-titulo {
+  fill: var(--color-ink-2);
+  font-family: var(--font-micro);
+  font-size: 13px;
+  text-anchor: middle;
+}
+
+/* Trazos */
+.diag-flecha {
+  stroke: var(--color-line);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.diag-flecha-acento {
+  stroke: var(--color-neon);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.diag-flecha-punteada {
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 5 5;
+  stroke-linecap: round;
+}
+
+.diag-punta {
+  fill: var(--color-line);
+}
+
+.diag-punta-acento {
+  fill: var(--color-neon);
+}

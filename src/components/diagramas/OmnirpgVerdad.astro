@@ -1,0 +1,47 @@
+---
+import '../../styles/diagramas.css';
+
+const tituloId = 'diag-omnirpg-titulo';
+---
+
+<svg viewBox="0 0 640 360" role="img" aria-labelledby={tituloId} class="diagrama">
+  <title id={tituloId}>
+    El servidor Python guarda el estado del mundo. Los clientes de Godot solo reaccionan a
+    lo que el servidor dicta, y Gemini escribe la narrativa a partir de ese mismo estado.
+  </title>
+
+  <defs>
+    <marker
+      id="punta-omnirpg"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0 10 5 0 10Z" class="diag-punta" />
+    </marker>
+  </defs>
+
+  <path d="M180 78 236 158" class="diag-flecha" marker-end="url(#punta-omnirpg)" />
+  <path d="M180 288 236 206" class="diag-flecha" marker-end="url(#punta-omnirpg)" />
+  <path d="M400 180h56" class="diag-flecha" marker-end="url(#punta-omnirpg)" />
+
+  <rect x="240" y="140" width="160" height="80" rx="10" class="diag-nodo-acento" />
+  <text x="320" y="174" class="diag-et">servidor Python</text>
+  <text x="320" y="196" class="diag-et-menor">única verdad</text>
+
+  <rect x="40" y="40" width="140" height="64" rx="10" class="diag-nodo" />
+  <text x="110" y="78" class="diag-et">cliente Godot</text>
+
+  <rect x="40" y="256" width="140" height="64" rx="10" class="diag-nodo" />
+  <text x="110" y="294" class="diag-et">cliente Godot</text>
+
+  <rect x="460" y="148" width="140" height="64" rx="10" class="diag-nodo-voz" />
+  <text x="530" y="186" class="diag-et">Gemini</text>
+  <text x="530" y="234" class="diag-et-menor">la voz, no la verdad</text>
+
+  <text x="110" y="130" class="diag-et-menor">avanza solo</text>
+  <text x="110" y="248" class="diag-et-menor">avanza solo</text>
+</svg>

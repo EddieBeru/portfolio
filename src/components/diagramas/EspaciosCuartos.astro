@@ -1,0 +1,54 @@
+---
+import '../../styles/diagramas.css';
+
+const tituloId = 'diag-espacios-titulo';
+---
+
+<svg viewBox="0 0 640 360" role="img" aria-labelledby={tituloId} class="diagrama">
+  <title id={tituloId}>
+    Tres cuartos publicados, cada uno con los gustos de alguien adentro. Del último sale una
+    flecha hacia este mismo sitio: el experimento no murió, cambió de forma.
+  </title>
+
+  <defs>
+    <marker
+      id="punta-espacios"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0 10 5 0 10Z" class="diag-punta-acento" />
+    </marker>
+  </defs>
+
+  <rect x="40" y="92" width="110" height="146" rx="10" class="diag-nodo" />
+  <rect x="60" y="114" width="70" height="24" rx="6" class="diag-chip" />
+  <rect x="60" y="152" width="70" height="24" rx="6" class="diag-chip" />
+  <rect x="60" y="190" width="70" height="24" rx="6" class="diag-chip" />
+  <text x="95" y="262" class="diag-et-menor">cuarto</text>
+
+  <rect x="180" y="92" width="110" height="146" rx="10" class="diag-nodo" />
+  <rect x="200" y="114" width="70" height="24" rx="6" class="diag-chip" />
+  <rect x="200" y="152" width="70" height="24" rx="6" class="diag-chip" />
+  <rect x="200" y="190" width="70" height="24" rx="6" class="diag-chip" />
+  <text x="235" y="262" class="diag-et-menor">cuarto</text>
+
+  <rect x="320" y="92" width="110" height="146" rx="10" class="diag-nodo" />
+  <rect x="340" y="114" width="70" height="24" rx="6" class="diag-chip" />
+  <rect x="340" y="152" width="70" height="24" rx="6" class="diag-chip" />
+  <rect x="340" y="190" width="70" height="24" rx="6" class="diag-chip" />
+  <text x="375" y="262" class="diag-et-menor">cuarto</text>
+
+  <text x="235" y="66" class="diag-titulo">gustos publicados, de gente ajena</text>
+
+  <path d="M434 165h30" class="diag-flecha-acento" marker-end="url(#punta-espacios)" />
+
+  <rect x="470" y="126" width="130" height="78" rx="12" class="diag-nodo-acento" />
+  <text x="535" y="160" class="diag-et">este sitio</text>
+  <text x="535" y="184" class="diag-et-menor">un solo cuarto</text>
+
+  <text x="320" y="312" class="diag-et-menor">la idea no murió, cambió de forma</text>
+</svg>

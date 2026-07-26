@@ -1,0 +1,55 @@
+---
+import '../../styles/diagramas.css';
+
+const tituloId = 'diag-pollo-asado-titulo';
+---
+
+<svg viewBox="0 0 640 360" role="img" aria-labelledby={tituloId} class="diagrama">
+  <title id={tituloId}>
+    Los movimientos entran por la izquierda, pasan por el análisis y salen convertidos en un
+    patrón. La app no existe para guardar la lista de gastos, sino para decir qué significa.
+  </title>
+
+  <defs>
+    <marker
+      id="punta-pollo"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0 10 5 0 10Z" class="diag-punta" />
+    </marker>
+  </defs>
+
+  <text x="130" y="66" class="diag-titulo">lo que entra</text>
+  <text x="500" y="66" class="diag-titulo">lo que sale</text>
+
+  <rect x="40" y="88" width="180" height="46" rx="8" class="diag-chip" />
+  <text x="130" y="117" class="diag-et">gasto</text>
+
+  <rect x="40" y="150" width="180" height="46" rx="8" class="diag-chip" />
+  <text x="130" y="179" class="diag-et">gasto</text>
+
+  <rect x="40" y="212" width="180" height="46" rx="8" class="diag-chip" />
+  <text x="130" y="241" class="diag-et">ingreso</text>
+
+  <path d="M224 111 274 165" class="diag-flecha" marker-end="url(#punta-pollo)" />
+  <path d="M224 173h50" class="diag-flecha" marker-end="url(#punta-pollo)" />
+  <path d="M224 235 274 181" class="diag-flecha" marker-end="url(#punta-pollo)" />
+
+  <rect x="280" y="148" width="110" height="52" rx="10" class="diag-nodo-acento" />
+  <text x="335" y="180" class="diag-et">análisis</text>
+
+  <path d="M394 174h26" class="diag-flecha" marker-end="url(#punta-pollo)" />
+
+  <rect x="424" y="126" width="176" height="96" rx="12" class="diag-nodo" />
+  <text x="512" y="166" class="diag-et">patrón</text>
+  <text x="512" y="192" class="diag-et-menor">no la lista</text>
+
+  <text x="320" y="306" class="diag-et-menor">
+    lo que importa no es lo que gastaste, es lo que eso dice de vos
+  </text>
+</svg>

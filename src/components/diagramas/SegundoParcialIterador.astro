@@ -1,0 +1,60 @@
+---
+import '../../styles/diagramas.css';
+
+const tituloId = 'diag-segundo-parcial-titulo';
+---
+
+<svg viewBox="0 0 640 360" role="img" aria-labelledby={tituloId} class="diagrama">
+  <title id={tituloId}>
+    Una lista enlazada escrita a mano, con su iterador recorriéndola nodo por nodo. Del mismo
+    esqueleto cuelgan los otros dos patrones del examen: un Facade que la envuelve y un
+    Observer que escucha sus cambios.
+  </title>
+
+  <defs>
+    <marker
+      id="punta-parcial"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0 10 5 0 10Z" class="diag-punta" />
+    </marker>
+  </defs>
+
+  <rect x="60" y="48" width="110" height="46" rx="8" class="diag-nodo-acento" />
+  <text x="115" y="77" class="diag-et">iterador</text>
+
+  <path d="M115 96v18" class="diag-flecha-punteada" marker-end="url(#punta-parcial)" />
+  <path d="M180 72h215" class="diag-flecha-punteada" marker-end="url(#punta-parcial)" />
+
+  <rect x="60" y="120" width="110" height="56" rx="10" class="diag-nodo" />
+  <text x="115" y="154" class="diag-et">nodo</text>
+
+  <rect x="200" y="120" width="110" height="56" rx="10" class="diag-nodo" />
+  <text x="255" y="154" class="diag-et">nodo</text>
+
+  <rect x="340" y="120" width="110" height="56" rx="10" class="diag-nodo" />
+  <text x="395" y="154" class="diag-et">nodo</text>
+
+  <path d="M174 148h20" class="diag-flecha" marker-end="url(#punta-parcial)" />
+  <path d="M314 148h20" class="diag-flecha" marker-end="url(#punta-parcial)" />
+
+  <text x="255" y="212" class="diag-et-menor">lista enlazada propia, sin colección de la librería</text>
+
+  <path d="M454 148 486 138" class="diag-flecha-punteada" marker-end="url(#punta-parcial)" />
+  <path d="M454 158 486 244" class="diag-flecha-punteada" marker-end="url(#punta-parcial)" />
+
+  <rect x="490" y="110" width="120" height="56" rx="10" class="diag-nodo" />
+  <text x="550" y="144" class="diag-et">Facade</text>
+
+  <rect x="490" y="228" width="120" height="56" rx="10" class="diag-nodo" />
+  <text x="550" y="262" class="diag-et">Observer</text>
+
+  <text x="320" y="322" class="diag-et-menor">
+    una estructura escrita a mano, y los patrones colgando de ella
+  </text>
+</svg>

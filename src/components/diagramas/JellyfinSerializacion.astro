@@ -1,0 +1,53 @@
+---
+import '../../styles/diagramas.css';
+
+const tituloId = 'diag-jellyfin-titulo';
+---
+
+<svg viewBox="0 0 640 360" role="img" aria-labelledby={tituloId} class="diagrama">
+  <title id={tituloId}>
+    A la izquierda, la respuesta cruda de la API: texto con llaves y comillas. A la derecha,
+    una clase de C# con campos tipados. En medio, el paso que costó entender: deserializar
+    convierte uno en el otro.
+  </title>
+
+  <defs>
+    <marker
+      id="punta-jellyfin"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0 10 5 0 10Z" class="diag-punta" />
+    </marker>
+  </defs>
+
+  <text x="145" y="62" class="diag-titulo">respuesta cruda</text>
+  <text x="500" y="62" class="diag-titulo">objeto tipado</text>
+
+  <rect x="40" y="80" width="210" height="180" rx="12" class="diag-nodo" />
+  <text x="62" y="118" class="diag-et-izq">{'{'}</text>
+  <text x="62" y="150" class="diag-et-izq">&#160;&#160;"Name": "…",</text>
+  <text x="62" y="182" class="diag-et-izq">&#160;&#160;"Id": "…",</text>
+  <text x="62" y="214" class="diag-et-izq">&#160;&#160;"Type": "…"</text>
+  <text x="62" y="246" class="diag-et-izq">{'}'}</text>
+
+  <rect x="400" y="80" width="200" height="180" rx="12" class="diag-nodo" />
+  <text x="422" y="118" class="diag-et-izq">class Elemento</text>
+  <text x="422" y="150" class="diag-et-izq">&#160;&#160;string Nombre</text>
+  <text x="422" y="182" class="diag-et-izq">&#160;&#160;Guid Id</text>
+  <text x="422" y="214" class="diag-et-izq">&#160;&#160;TipoMedio Tipo</text>
+
+  <path d="M254 170h12" class="diag-flecha" marker-end="url(#punta-jellyfin)" />
+  <path d="M376 170h20" class="diag-flecha" marker-end="url(#punta-jellyfin)" />
+
+  <rect x="272" y="145" width="100" height="50" rx="10" class="diag-nodo-acento" />
+  <text x="322" y="176" class="diag-et">deserializar</text>
+
+  <text x="320" y="310" class="diag-et-menor">
+    el paso que no entendía: del texto de la API al tipo que el código puede usar
+  </text>
+</svg>

@@ -1,3 +1,10 @@
+import EcosistemaRed from './diagramas/EcosistemaRed.astro';
+import EspaciosCuartos from './diagramas/EspaciosCuartos.astro';
+import JellyfinSerializacion from './diagramas/JellyfinSerializacion.astro';
+import OmnirpgVerdad from './diagramas/OmnirpgVerdad.astro';
+import PolloAsadoInsight from './diagramas/PolloAsadoInsight.astro';
+import SegundoParcialIterador from './diagramas/SegundoParcialIterador.astro';
+import UbotRenderizado from './diagramas/UbotRenderizado.astro';
 import EspaciosCompartidos from './marcas/EspaciosCompartidos.astro';
 import JellyfinUWPClient from './marcas/JellyfinUWPClient.astro';
 import OmniRPG from './marcas/OmniRPG.astro';
@@ -18,4 +25,13 @@ export const MARCAS = {
   'segundo-parcial-programacion': SegundoParcialProgramacion,
 } as const;
 
-export const DIAGRAMAS = {} as const;
+// La clave es la que el contenido declara en `imagen.componente`.
+export const DIAGRAMAS = {
+  'ubot-renderizado': UbotRenderizado,
+  'omnirpg-verdad': OmnirpgVerdad,
+  'ecosistema-red': EcosistemaRed,
+  'jellyfin-serializacion': JellyfinSerializacion,
+  'pollo-asado-insight': PolloAsadoInsight,
+  'espacios-cuartos': EspaciosCuartos,
+  'segundo-parcial-iterador': SegundoParcialIterador,
+} as const;

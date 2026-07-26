@@ -1,0 +1,62 @@
+---
+import '../../styles/diagramas.css';
+
+const tituloId = 'diag-ecosistema-titulo';
+---
+
+<svg viewBox="0 0 640 360" role="img" aria-labelledby={tituloId} class="diagrama">
+  <title id={tituloId}>
+    Red de dependencias del ecosistema. El agua alimenta las plantaciones, las plantaciones
+    a los herbívoros y los herbívoros a los carnívoros. El clima y la temporada modulan las
+    tasas de aparición de todos los niveles a la vez.
+  </title>
+
+  <defs>
+    <marker
+      id="punta-eco"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0 10 5 0 10Z" class="diag-punta" />
+    </marker>
+  </defs>
+
+  <rect x="200" y="52" width="110" height="46" rx="8" class="diag-nodo" />
+  <text x="255" y="81" class="diag-et">clima</text>
+
+  <rect x="330" y="52" width="110" height="46" rx="8" class="diag-nodo" />
+  <text x="385" y="81" class="diag-et">temporada</text>
+
+  <path
+    d="M255 98v34M385 98v34M90 132h460"
+    class="diag-flecha-punteada"
+  />
+  <path d="M90 132v52" class="diag-flecha-punteada" marker-end="url(#punta-eco)" />
+  <path d="M250 132v52" class="diag-flecha-punteada" marker-end="url(#punta-eco)" />
+  <path d="M410 132v52" class="diag-flecha-punteada" marker-end="url(#punta-eco)" />
+  <path d="M570 132v52" class="diag-flecha-punteada" marker-end="url(#punta-eco)" />
+
+  <rect x="30" y="196" width="120" height="60" rx="10" class="diag-nodo" />
+  <text x="90" y="232" class="diag-et">agua</text>
+
+  <rect x="190" y="196" width="120" height="60" rx="10" class="diag-nodo" />
+  <text x="250" y="232" class="diag-et">plantaciones</text>
+
+  <rect x="350" y="196" width="120" height="60" rx="10" class="diag-nodo" />
+  <text x="410" y="232" class="diag-et">herbívoros</text>
+
+  <rect x="510" y="196" width="120" height="60" rx="10" class="diag-nodo-acento" />
+  <text x="570" y="232" class="diag-et">carnívoros</text>
+
+  <path d="M154 226h26" class="diag-flecha" marker-end="url(#punta-eco)" />
+  <path d="M314 226h26" class="diag-flecha" marker-end="url(#punta-eco)" />
+  <path d="M474 226h26" class="diag-flecha" marker-end="url(#punta-eco)" />
+
+  <text x="320" y="306" class="diag-et-menor">
+    cada nivel come del anterior; el clima y la temporada mueven todas las tasas
+  </text>
+</svg>
