@@ -40,7 +40,7 @@ Astro 5 + Tailwind CSS 4.
 
 **Cloudflare Pages fue la elección inicial y se descartó.** Sus ventajas reales —ancho de banda ilimitado, previews por rama— no aplican: el tráfico esperado no roza los 100 GB mensuales de GitHub Pages, y el trabajo es de una sola persona mergeando a `main`. A cambio evitamos una plataforma más que mantener. El único costo asumido es quedarse sin deploy previews por PR.
 
-**Pendiente de decisión, con impacto en la configuración:** GitHub Pages sirve el repo `portfolio` bajo `eddieberu.github.io/portfolio`, lo que obliga a fijar `base: '/portfolio'` en `astro.config.mjs`. Servir desde la raíz requiere renombrar el repo a `EddieBeru.github.io` o apuntar un dominio propio. Hay que decidirlo antes de configurar el proyecto: cambiar `base` después rompe todos los enlaces internos y las rutas de assets.
+**Ruta base resuelta.** El repo se renombró a `EddieBeru.github.io`, el repo especial de usuario de GitHub Pages, que se sirve desde la raíz del dominio. En consecuencia `astro.config.mjs` lleva `site: 'https://eddieberu.github.io'` y **no** lleva `base` — no hay prefijo de subcarpeta que arrastrar por cada enlace y cada ruta de asset. Si más adelante se apunta un dominio propio, basta con cambiar `site`; la estructura de rutas no cambia.
 
 ### 2. Lenguaje visual
 
