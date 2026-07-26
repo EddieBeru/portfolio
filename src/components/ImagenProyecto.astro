@@ -1,0 +1,42 @@
+---
+import { DIAGRAMAS } from './registro';
+
+interface Props {
+  imagen:
+    | { tipo: 'captura'; src: string; alt: string }
+    | { tipo: 'diagrama'; componente: string; alt: string };
+}
+
+const { imagen } = Astro.props;
+const Diagrama = imagen.tipo === 'diagrama' ? DIAGRAMAS[imagen.componente] : null;
+
+// Deliberado: una referencia colgante rompe el build en vez de dejar un hueco.
+if (imagen.tipo === 'diagrama' && !Diagrama) {
+  throw new Error(`El diagrama "${imagen.componente}" no está en el registro`);
+}
+---
+
+<figure class="imagen">
+  {imagen.tipo === 'captura' && <img src={imagen.src} alt={imagen.alt} loading="lazy" />}
+  {Diagrama && <Diagrama />}
+  <figcaption>{imagen.alt}</figcaption>
+</figure>
+
+<style>
+  .imagen {
+    margin: 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+  }
+  figcaption {
+    margin-top: 10px;
+    color: var(--color-ink-3);
+    font-family: var(--font-micro);
+    font-size: var(--text-step--1);
+    line-height: 1.6;
+  }
+</style>

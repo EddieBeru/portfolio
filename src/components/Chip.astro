@@ -1,0 +1,28 @@
+---
+interface Props {
+  tono?: 'neutro' | 'acento';
+}
+const { tono = 'neutro' } = Astro.props;
+---
+
+<span class:list={['chip', tono]}><slot /></span>
+
+<style>
+  .chip {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    color: var(--color-ink-2);
+    font-family: var(--font-micro);
+    font-size: var(--text-step--1);
+    line-height: 1.5;
+  }
+  /* --color-moss solo como borde. Como texto va --color-moss-text: el primero
+     no alcanza el contraste mínimo sobre la superficie. */
+  .acento {
+    border-color: var(--color-moss);
+    color: var(--color-moss-text);
+  }
+</style>
