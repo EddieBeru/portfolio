@@ -81,7 +81,7 @@ El entregable es el schema: que un proyecto sin `enseñó` o sin `imagen` rompa 
 
 **Nota sobre el nombre del campo.** El spec lo llama `enseñó`. En el frontmatter se escribe `enseño`, sin tilde en la o: es una clave, y una clave con tilde obliga a comillas en YAML y a notación de corchetes en TypeScript por el resto del proyecto. El texto visible sí lleva la tilde.
 
-- [ ] **Step 1: Escribir el test que falla**
+- [x] **Step 1: Escribir el test que falla**
 
 Create `tests/contenido.test.ts`:
 
@@ -119,12 +119,12 @@ describe('colección de proyectos', () => {
 });
 ```
 
-- [ ] **Step 2: Correr el test y verificar que falla**
+- [x] **Step 2: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/contenido.test.ts`
 Expected: FAIL. `astro:content` no resuelve porque no existe `src/content.config.ts`.
 
-- [ ] **Step 3: Escribir `src/content.config.ts`**
+- [x] **Step 3: Escribir `src/content.config.ts`**
 
 ```ts
 import { defineCollection, z } from 'astro:content';
@@ -221,7 +221,7 @@ const aprendiendo = defineCollection({
 export const collections = { proyectos, hitos, conocimientos, aprendiendo };
 ```
 
-- [ ] **Step 4: Escribir un proyecto de prueba, `src/content/proyectos/ubot.md`**
+- [x] **Step 4: Escribir un proyecto de prueba, `src/content/proyectos/ubot.md`**
 
 El contenido sale del spec, sección "Ubot". La prosa del cuerpo se escribe completa en la Task 2; aquí basta el frontmatter válido y un párrafo, para que el schema tenga qué validar.
 
@@ -248,14 +248,14 @@ orden: 1
 Chat con IA, exámenes simulacro y juegos de estudio.
 ```
 
-- [ ] **Step 5: Correr el test y verificar que pasa**
+- [x] **Step 5: Correr el test y verificar que pasa**
 
 Run: `pnpm test tests/contenido.test.ts`
 Expected: PASS.
 
 Si Vitest no resuelve `astro:content`, es porque el módulo virtual necesita que Astro haya sincronizado los tipos. Correr `pnpm astro sync` una vez y repetir.
 
-- [ ] **Step 6: Verificar que el schema rechaza lo que debe**
+- [x] **Step 6: Verificar que el schema rechaza lo que debe**
 
 Prueba manual, para confirmar que la guarda muerde. Añadir temporalmente `src/content/proyectos/roto.md`:
 
@@ -279,7 +279,7 @@ Expected: FAIL con `Los proyectos con página propia necesitan imagen real: capt
 
 Borrar `src/content/proyectos/roto.md` y volver a correr `pnpm build`: pasa.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/content.config.ts src/content/proyectos/ubot.md tests/contenido.test.ts
@@ -311,7 +311,7 @@ build error too, since the site never links into the void."
   `proyecto-progra-ii`, `admin-biblio-proyecto`, `backend-progra-iii`, `conocimiento-webdev`, `pwa-demo`, `poker-mod` (nivel 3).
   Los identificadores de nivel 1 y 2 coinciden con las carpetas ya creadas en `src/assets/proyectos/`.
 
-- [ ] **Step 1: Ampliar el test con la cobertura y las reglas de privacidad**
+- [x] **Step 1: Ampliar el test con la cobertura y las reglas de privacidad**
 
 Añadir a `tests/contenido.test.ts`:
 
@@ -376,12 +376,12 @@ describe('reglas de privacidad', () => {
 });
 ```
 
-- [ ] **Step 2: Correr el test y verificar que falla**
+- [x] **Step 2: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/contenido.test.ts`
 Expected: FAIL en "los trece proyectos existen": solo hay uno.
 
-- [ ] **Step 3: Escribir los cuatro proyectos de nivel 1**
+- [x] **Step 3: Escribir los cuatro proyectos de nivel 1**
 
 Cada cuerpo se redacta desde la sección correspondiente del spec de contenido, respetando la estructura fija de la página de proyecto: por qué lo hizo, qué enseñó, qué salió mal. Los hechos —stack, escala, fechas, estado— se copian literales del spec; no se inventa ninguno.
 
@@ -425,11 +425,11 @@ ocurrió mientras estuvo fuera.
 
 `simulacion-ecosistema.md` lleva `imagen.tipo: diagrama` con componente `ecosistema-red` y una nota en el cuerpo de que la recreación en vivo llega después. `jellyfin-uwp-client.md` cuenta el desbloqueo de la serialización en C# y cómo lo mató un reescribir, sin maquillaje.
 
-- [ ] **Step 4: Escribir los tres proyectos de nivel 2**
+- [x] **Step 4: Escribir los tres proyectos de nivel 2**
 
 `pollo-asado.md` (finanzas personales con insights, JavaScript, con una amiga de residencias, lento porque la universidad se atraviesa, repo público), `espacios-compartidos.md` (**no se presenta como fracaso**: es el antecedente directo de este portafolio, la idea cambió de forma y este sitio es ese cuarto) y `segundo-parcial-programacion.md` (contenedor genérico, iterador y nodo propios, Facade, Observer, persistencia en CSV, patrones aplicados sin que nadie los pidiera por nombre).
 
-- [ ] **Step 5: Escribir los seis proyectos de nivel 3**
+- [x] **Step 5: Escribir los seis proyectos de nivel 3**
 
 Frontmatter mínimo, sin `imagen` ni `marca` —el schema no los exige en nivel 3— y con `enseño` cargando la línea de la columna "Qué queda" del spec. Ejemplo completo, `poker-mod.md`:
 
@@ -447,7 +447,7 @@ orden: 13
 ---
 ```
 
-- [ ] **Step 6: Escribir los cuatro hitos**
+- [x] **Step 6: Escribir los cuatro hitos**
 
 Uno por fila de la tabla "Línea de tiempo" del spec. Ejemplo completo, `2023-csharp.md`:
 
@@ -463,7 +463,7 @@ proyectos: [jellyfin-uwp-client]
 
 Los otros tres: `2024-carrera.md` (entró a la carrera, aprendizaje formal y buenas prácticas, C++ al inicio, sin proyectos enlazados), `2025-simulacion.md` (SimulacionEcosistema, descubrió que ver simulaciones ocurrir le gusta, enlaza `simulacion-ecosistema`) y `2026-ubot.md` (nace Ubot, frontend y deploys a otra escala, enlaza `ubot`).
 
-- [ ] **Step 7: Escribir `src/content/conocimientos/inventario.yaml`**
+- [x] **Step 7: Escribir `src/content/conocimientos/inventario.yaml`**
 
 El loader `file` sobre un YAML espera una lista de objetos con `id`. Los niveles y opiniones se copian del spec.
 
@@ -540,7 +540,7 @@ El loader `file` sobre un YAML espera una lista de objetos con `id`. Los niveles
   opinion: No viene de un curso. Viene de trastear mi Android: debugging, sideloading y hasta custom ROMs.
 ```
 
-- [ ] **Step 8: Escribir `src/content/aprendiendo/actual.md`**
+- [x] **Step 8: Escribir `src/content/aprendiendo/actual.md`**
 
 El único archivo que Eddie edita a mano con regularidad. Alimenta el widget de la Fase 4 y el README de perfil.
 
@@ -553,12 +553,12 @@ Astro y Tailwind 4, construyendo este sitio. Lo que más me está costando y má
 gusta: que el sistema de diseño sea código verificable y no una carpeta de capturas.
 ```
 
-- [ ] **Step 9: Correr los tests y verificar que pasan**
+- [x] **Step 9: Correr los tests y verificar que pasan**
 
 Run: `pnpm test`
 Expected: PASS, toda la suite.
 
-- [ ] **Step 10: Commit**
+- [x] **Step 10: Commit**
 
 ```bash
 git add src/content tests/contenido.test.ts
@@ -583,7 +583,7 @@ partner is never gendered, and the professor story stays unpublished."
 - Consumes: el campo `marca` de las entradas de proyecto.
 - Produces: `src/components/registro.ts` exporta `MARCAS: Record<string, AstroComponentFactory>` y `DIAGRAMAS: Record<string, AstroComponentFactory>`. La Task 4 añade entradas a `DIAGRAMAS`; la Task 5 las consume.
 
-- [ ] **Step 1: Escribir el test que falla**
+- [x] **Step 1: Escribir el test que falla**
 
 Create `tests/registro.test.ts`:
 
@@ -621,12 +621,12 @@ describe('registro de marcas y diagramas', () => {
 });
 ```
 
-- [ ] **Step 2: Correr el test y verificar que falla**
+- [x] **Step 2: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/registro.test.ts`
 Expected: FAIL. No existe `src/components/registro.ts`.
 
-- [ ] **Step 3: Dibujar las siete marcas**
+- [x] **Step 3: Dibujar las siete marcas**
 
 Un glifo por proyecto, mismo sistema: lienzo `0 0 48 48`, trazo de 2.5, extremos redondeados, `currentColor` para que herede el color del contexto, sin relleno salvo donde el glifo lo pida. Cada una alude a lo que el proyecto es, no a su tecnología.
 
@@ -660,7 +660,7 @@ const { size = 48 } = Astro.props;
 Las otras seis siguen el mismo contrato de props y el mismo lienzo:
 `OmniRPG.astro` (un dado de veinte caras reducido a su silueta hexagonal con un nodo central del que salen dos ramas: las dos partidas asíncronas), `SimulacionEcosistema.astro` (tres celdas de una retícula con densidades distintas y una flecha de ciclo), `JellyfinUWPClient.astro` (un rectángulo de pantalla con un triángulo de reproducción descentrado), `PolloAsado.astro` (una curva ascendente sobre una línea base, con un punto marcado), `EspaciosCompartidos.astro` (dos habitaciones cuadradas que comparten una arista abierta) y `SegundoParcialProgramacion.astro` (tres nodos encadenados con la flecha del último volviendo al primero: la lista enlazada con su iterador).
 
-- [ ] **Step 4: Escribir `src/components/registro.ts`**
+- [x] **Step 4: Escribir `src/components/registro.ts`**
 
 ```ts
 import EspaciosCompartidos from './marcas/EspaciosCompartidos.astro';
@@ -686,12 +686,12 @@ export const DIAGRAMAS = {} as const;
 
 `DIAGRAMAS` queda vacío a propósito: la Task 4 lo llena. El test de diagramas falla hasta entonces, y eso es correcto — el contenido ya declara diagramas que todavía no existen.
 
-- [ ] **Step 5: Correr el test**
+- [x] **Step 5: Correr el test**
 
 Run: `pnpm test tests/registro.test.ts`
 Expected: el caso de marcas PASA; el de diagramas FALLA con `falta el diagrama ubot-renderizado`. Ese fallo es el trabajo de la Task 4.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components/marcas src/components/registro.ts tests/registro.test.ts
@@ -718,7 +718,7 @@ Siete proyectos con página y ninguna captura entregada. El diagrama no es relle
 - Consumes: `MARCAS` y `DIAGRAMAS` de la Task 3.
 - Produces: `DIAGRAMAS` poblado con las siete claves que el contenido declara: `ubot-renderizado`, `omnirpg-verdad`, `ecosistema-red`, `jellyfin-serializacion`, `pollo-asado-insight`, `espacios-cuartos`, `segundo-parcial-iterador`.
 
-- [ ] **Step 1: Dibujar los diagramas**
+- [x] **Step 1: Dibujar los diagramas**
 
 Lienzo `0 0 640 360`, texto en `--font-micro`, trazos con los tokens del sitio. Cada uno tiene `role="img"` y su `<title>` conectado por `aria-labelledby`: el diagrama es contenido, no decoración, y el lector de pantalla debe recibirlo.
 
@@ -811,7 +811,7 @@ Los otros seis, cada uno diciendo lo que su proyecto enseñó:
 - `EspaciosCuartos.astro` — cuartos publicados con gustos adentro, y una flecha que sale del último cuarto hacia este mismo sitio. El antecedente, dibujado.
 - `SegundoParcialIterador.astro` — la lista enlazada con su iterador recorriéndola, y a un lado el Facade y el Observer colgando de la misma estructura.
 
-- [ ] **Step 2: Registrar los diagramas**
+- [x] **Step 2: Registrar los diagramas**
 
 Reemplazar la línea `export const DIAGRAMAS = {} as const;` de `src/components/registro.ts` por:
 
@@ -837,12 +837,12 @@ export const DIAGRAMAS = {
 
 Los `import` van arriba del archivo, junto a los de las marcas.
 
-- [ ] **Step 3: Correr los tests y verificar que pasan**
+- [x] **Step 3: Correr los tests y verificar que pasan**
 
 Run: `pnpm test`
 Expected: PASS, incluido el caso de diagramas que la Task 3 dejó en rojo.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/components/diagramas src/components/registro.ts
@@ -871,7 +871,7 @@ screen readers as content rather than decoration."
 - Consumes: las colecciones de la Task 2, el registro de la Task 4.
 - Produces: la ruta `/proyectos/<id>` para todo proyecto de nivel 1 y 2. La Task 6 y la Fase 3 enlazan a ella.
 
-- [ ] **Step 1: Escribir el test que falla**
+- [x] **Step 1: Escribir el test que falla**
 
 Create `tests/paginas.test.ts`:
 
@@ -918,12 +918,12 @@ describe('página de proyecto', () => {
 });
 ```
 
-- [ ] **Step 2: Correr el test y verificar que falla**
+- [x] **Step 2: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/paginas.test.ts`
 Expected: FAIL. No existe `src/pages/proyectos/[slug].astro`.
 
-- [ ] **Step 3: Escribir `src/components/Chip.astro`**
+- [x] **Step 3: Escribir `src/components/Chip.astro`**
 
 ```astro
 ---
@@ -956,7 +956,7 @@ const { tono = 'neutro' } = Astro.props;
 
 `--color-moss` aparece solo como borde. Como texto va `--color-moss-text`, que es la regla dura del sistema.
 
-- [ ] **Step 4: Escribir `src/components/ImagenProyecto.astro`**
+- [x] **Step 4: Escribir `src/components/ImagenProyecto.astro`**
 
 Resuelve la unión discriminada en un solo lugar, para que la plantilla de página no tenga que saber de variantes.
 
@@ -1005,7 +1005,7 @@ if (imagen.tipo === 'diagrama' && !Diagrama) {
 
 El `throw` es deliberado: una referencia colgante rompe el build en vez de dejar un hueco.
 
-- [ ] **Step 5: Escribir `src/pages/proyectos/[slug].astro`**
+- [x] **Step 5: Escribir `src/pages/proyectos/[slug].astro`**
 
 ```astro
 ---
@@ -1125,19 +1125,19 @@ const Marca = data.marca ? MARCAS[data.marca] : null;
 
 El bloque de "Qué enseñó" lleva superficie propia y titular en neón, no una franja de color al costado: el borde es de 1px, que es lo que el sistema permite.
 
-- [ ] **Step 6: Correr los tests y verificar que pasan**
+- [x] **Step 6: Correr los tests y verificar que pasan**
 
 Run: `pnpm test`
 Expected: PASS.
 
-- [ ] **Step 7: Verificar el build**
+- [x] **Step 7: Verificar el build**
 
 Run: `pnpm build`
 Expected: genera siete rutas bajo `dist/proyectos/`, una por proyecto de nivel 1 y 2.
 
 Verificar: `ls dist/proyectos/` lista los siete directorios.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src/components/Chip.astro src/components/ImagenProyecto.astro src/pages/proyectos tests/paginas.test.ts
@@ -1163,7 +1163,7 @@ a dangling registry key, so a missing diagram breaks the build."
 - Consumes: todo lo anterior.
 - Produces: la ruta `/proyectos`. La Fase 3 enlaza a ella desde el home.
 
-- [ ] **Step 1: Ampliar el test**
+- [x] **Step 1: Ampliar el test**
 
 Añadir a `tests/paginas.test.ts`:
 
@@ -1200,12 +1200,12 @@ describe('índice de proyectos', () => {
 });
 ```
 
-- [ ] **Step 2: Correr el test y verificar que falla**
+- [x] **Step 2: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/paginas.test.ts`
 Expected: FAIL. No existe `src/pages/proyectos/index.astro`.
 
-- [ ] **Step 3: Escribir `src/pages/proyectos/index.astro`**
+- [x] **Step 3: Escribir `src/pages/proyectos/index.astro`**
 
 Los niveles reciben tratamiento distinto a propósito. Nivel 1 son paneles anchos con marca grande; nivel 2 son piezas más angostas; nivel 3 es una tabla honesta. Nada de una retícula de tarjetas iguales repetida trece veces.
 
@@ -1386,12 +1386,12 @@ const porNivel = (nivel: number) => proyectos.filter((p) => p.data.nivel === niv
 </style>
 ```
 
-- [ ] **Step 4: Correr los tests y verificar que pasan**
+- [x] **Step 4: Correr los tests y verificar que pasan**
 
 Run: `pnpm test`
 Expected: PASS, toda la suite.
 
-- [ ] **Step 5: Enlazar desde el home**
+- [x] **Step 5: Enlazar desde el home**
 
 Modificar `src/pages/index.astro`, añadiendo bajo el párrafo existente:
 
@@ -1401,12 +1401,12 @@ Modificar `src/pages/index.astro`, añadiendo bajo el párrafo existente:
 
 El home real llega en la Fase 3; esto solo evita que `/proyectos` quede huérfana.
 
-- [ ] **Step 6: Verificar el build**
+- [x] **Step 6: Verificar el build**
 
 Run: `pnpm build`
 Expected: ocho páginas — el home, el índice y las siete de proyecto.
 
-- [ ] **Step 7: Commit y push**
+- [x] **Step 7: Commit y push**
 
 ```bash
 git add src/pages/proyectos/index.astro src/pages/index.astro tests/paginas.test.ts
@@ -1433,3 +1433,44 @@ Dos cosas que dependen de Eddie y no de código:
 
 - **Las capturas.** Cada proyecto que hoy lleva diagrama puede llevar además captura; el cambio es una variante en el frontmatter. Las carpetas esperan en `src/assets/proyectos/`.
 - **El logo real de Ubot y el de Jellyfin.** Hoy ambos llevan marca propia.
+
+---
+
+## Ejecutado el 2026-07-26
+
+Las seis tareas están completas y desplegadas. `/proyectos` y las siete páginas
+de proyecto responden 200 en producción. Suite: 59 tests, `astro check` en cero
+errores, build de nueve páginas.
+
+Cinco desvíos respecto del plan escrito:
+
+1. **`src/styles/diagramas.css` en vez de siete bloques `<style>`.** Los siete
+   diagramas comparten el mismo lienzo y el mismo vocabulario de formas.
+   Duplicar unas noventa líneas de CSS siete veces las habría dejado
+   desincronizadas al primer ajuste de color. Cada diagrama importa la hoja
+   desde su frontmatter.
+
+2. **Cada diagrama define su propio `marker` con id único** (`punta-ubot`,
+   `punta-eco`, …). El plan mostraba un id genérico `punta`; con dos diagramas
+   en la misma página los ids colisionan y las puntas de flecha se resuelven
+   contra el primer marker del documento.
+
+3. **Una flecha por elemento `<path>`.** El borrador agrupaba varias flechas en
+   un solo `path` con varios subtrazos. `marker-end` se coloca en el último
+   vértice del path completo, no en el de cada subtrazo, así que solo la última
+   flecha del grupo habría tenido punta.
+
+4. **`MARCAS` y `DIAGRAMAS` tipados como `Record<string, Componente | undefined>`
+   en vez de `as const`.** Las claves vienen del contenido, que es un string
+   cualquiera; con un objeto literal TypeScript rechaza el índice.
+
+5. **`getStaticPaths` sin anotar y `InferGetStaticPropsType`.** Anotar la
+   función como `GetStaticPaths` borra la inferencia de props y deja
+   `Astro.props` en `unknown`.
+
+Además, `astro check` pasó de ocho errores a cero: faltaba `@types/node` para
+los archivos de test y la ampliación de tipos de Vitest en `vitest.config.ts`.
+Estaba en rojo desde la Fase 1, o sea que no guardaba nada.
+
+Sigue pendiente de Eddie: las capturas de cada proyecto en
+`src/assets/proyectos/<slug>/`, el logo real de Ubot y el de Jellyfin.
