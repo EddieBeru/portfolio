@@ -1,0 +1,25 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 48 } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 48 48"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <circle cx="10" cy="17" r="4" />
+  <circle cx="24" cy="17" r="4" />
+  <circle cx="38" cy="17" r="4" />
+  <path d="M14 17h6M28 17h6" />
+  <path d="M38 21v9H10v-5" stroke-opacity="0.6" />
+  <path d="M7 27l3-3 3 3" stroke-opacity="0.6" />
+</svg>
