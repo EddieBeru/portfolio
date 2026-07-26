@@ -20,11 +20,11 @@ Restricción dura: **sin servidor**. Nada de costos recurrentes de infraestructu
 
 ### 1. Stack
 
-Astro 5 + Tailwind CSS 4.
+Astro 7 + Tailwind CSS 4.
 
 | Pieza | Elección | Por qué |
 |---|---|---|
-| Framework | Astro 5 | Salida HTML estática, cero JS por default, islas solo donde hace falta. El sitio es pesado en contenido y ligero en interacción; este es exactamente su caso de uso. |
+| Framework | Astro 7 | Salida HTML estática, cero JS por default, islas solo donde hace falta. El sitio es pesado en contenido y ligero en interacción; este es exactamente su caso de uso. |
 | Estilos | Tailwind CSS 4 | Tokens declarados en `@theme` (CSS-first), sin `tailwind.config.js`. Los tokens de DESIGN.md son la única fuente de verdad. |
 | Contenido | Content Collections + Zod | Cada proyecto es un `.mdx` con schema validado. Agregar un proyecto es agregar un archivo, no duplicar markup. |
 | Motion | `motion` (Motion One) | Orquestación y stagger. CSS puro donde CSS alcanza. |

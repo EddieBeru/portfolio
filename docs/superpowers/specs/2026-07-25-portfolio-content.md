@@ -253,6 +253,26 @@ Que `enseñó` e `imagen` sean obligatorios en el schema es deliberado: son los 
 
 ---
 
+## README de perfil sincronizado
+
+El perfil de GitHub (`github.com/EddieBeru/EddieBeru`) es la segunda superficie del mismo contenido. Hoy es una plantilla generada con GPRM: muro de badges, stats, trofeos, quote aleatoria y contador. El muro de badges declara Firebase, Canva, Arduino, Notion, Docker, Raspberry Pi y Xbox como stack —cosas que no aparecen en el inventario real— y llama a Eddie "Computer Science student" en vez de su carrera real.
+
+**Una sola fuente de verdad.** El contenido vive en `src/content/` de este repo. El README de perfil se **genera** desde ahí, nunca se edita a mano.
+
+**Dirección del flujo.** El workflow vive en el repo `EddieBeru`, con cron diario: lee el contenido de este repo por `raw.githubusercontent.com` (es público), regenera el README y commitea. Así basta el `GITHUB_TOKEN` por defecto. El sentido inverso —que este repo empuje al perfil— exigiría un PAT guardado como secreto para lograr lo mismo.
+
+**Qué hereda del sitio:** el inventario con niveles honestos (`en serio` / `maso` / `toqué`), los proyectos destacados y "aprendiendo ahora". Editar `aprendiendo.md` una vez actualiza las dos superficies.
+
+**Qué se conserva del README actual** (decidido 2026-07-25): contador de visitas, stats de GitHub, trofeos y quote aleatoria. Se mantienen LinkedIn y email.
+
+**Qué sale:** el muro de badges aspiracional, el enlace de PayPal, Instagram y Pinterest.
+
+El README **se reescribe, nunca se borra**, y cada versión queda en el historial de git del repo `EddieBeru`.
+
+Esta pieza depende de que existan las colecciones de contenido, así que va en una fase posterior del plan, no en la fundación.
+
+---
+
 ## Pendientes
 
 - OmniRPG es privado (confirmado). Su página no lleva enlace a repo; se dice que es privado en vez de enlazar al vacío.
