@@ -33,10 +33,14 @@ Astro 5 + Tailwind CSS 4.
 | Fuentes | Self-hosted (`@fontsource` / Fontshare con subsetting) | Sin peticiones a CDN externo: sin FOUT, sin dependencia de terceros, mejor privacidad. |
 | Guestbook | giscus | Los mensajes viven en GitHub Discussions del repo. Sin servidor, sin base de datos, sin costo. La audiencia es dev, así que el requisito de cuenta de GitHub no filtra a nadie relevante. |
 | Datos dinámicos | GitHub API en build + GitHub Actions cron diario | Único camino a datos frescos sin servidor. |
-| Deploy | Cloudflare Pages | Gratis, build automático desde el repo. |
+| Deploy | GitHub Pages vía Actions | El cron diario que refresca los datos de GitHub ya obliga a tener Actions. Desplegar desde el mismo workflow evita una plataforma más. Repo público, así que los minutos de Actions son gratis e ilimitados. |
 | Calidad | `@astrojs/check`, ESLint, Prettier | Type checking sobre `.astro` incluido. |
 
 **Alternativas descartadas:** Next.js con `output: 'export'` (manda más JS al cliente sin aportar nada sin servidor); Vite + React SPA (peor primer render y SEO, todo el sitio en un bundle); HTML/CSS/JS puro (escala mal —cada proyecto nuevo obliga a duplicar markup a mano).
+
+**Cloudflare Pages fue la elección inicial y se descartó.** Sus ventajas reales —ancho de banda ilimitado, previews por rama— no aplican: el tráfico esperado no roza los 100 GB mensuales de GitHub Pages, y el trabajo es de una sola persona mergeando a `main`. A cambio evitamos una plataforma más que mantener. El único costo asumido es quedarse sin deploy previews por PR.
+
+**Pendiente de decisión, con impacto en la configuración:** GitHub Pages sirve el repo `portfolio` bajo `eddieberu.github.io/portfolio`, lo que obliga a fijar `base: '/portfolio'` en `astro.config.mjs`. Servir desde la raíz requiere renombrar el repo a `EddieBeru.github.io` o apuntar un dominio propio. Hay que decidirlo antes de configurar el proyecto: cambiar `base` después rompe todos los enlaces internos y las rutas de assets.
 
 ### 2. Lenguaje visual
 
