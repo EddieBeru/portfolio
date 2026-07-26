@@ -1,0 +1,71 @@
+- id: csharp
+  categoria: lenguaje
+  nombre: C#
+  nivel: en serio
+- id: cpp
+  categoria: lenguaje
+  nombre: C++
+  nivel: maso
+  opinion: Me dejó la sensación de que tiene mucho más que ofrecer de lo que alcancé a ver.
+- id: javascript
+  categoria: lenguaje
+  nombre: JavaScript
+  nivel: maso
+  opinion: La sintaxis tan liberal se me hace rara. Prefiero tipado.
+- id: python
+  categoria: lenguaje
+  nombre: Python
+  nivel: maso
+- id: java
+  categoria: lenguaje
+  nombre: Java
+  nivel: maso
+  opinion: Lo detesto.
+- id: gdscript
+  categoria: lenguaje
+  nombre: GDScript
+  nivel: maso
+- id: sql
+  categoria: lenguaje
+  nombre: SQL
+  nivel: toqué
+- id: dotnet
+  categoria: framework
+  nombre: .NET
+  nivel: en serio
+- id: blazor
+  categoria: framework
+  nombre: Blazor
+  nivel: maso
+- id: godot
+  categoria: framework
+  nombre: Godot
+  nivel: maso
+- id: azure
+  categoria: nube
+  nombre: Azure
+  nivel: maso
+- id: railway
+  categoria: nube
+  nombre: Railway
+  nivel: maso
+- id: vscode
+  categoria: herramienta
+  nombre: VSCode
+- id: antigravity
+  categoria: herramienta
+  nombre: Antigravity
+  opinion: La uso como IDE y como CLI.
+- id: opencode
+  categoria: herramienta
+  nombre: OpenCode
+- id: claude-code
+  categoria: herramienta
+  nombre: Claude Code
+- id: git
+  categoria: herramienta
+  nombre: git
+- id: adb
+  categoria: herramienta
+  nombre: adb
+  opinion: "No viene de un curso. Viene de trastear mi Android: debugging, sideloading y hasta custom ROMs."
