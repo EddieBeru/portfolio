@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "pretest": "astro sync && node scripts/preparar-tests.mjs",
     "test": "vitest run"
   },
   "dependencies": {
