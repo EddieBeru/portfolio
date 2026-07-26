@@ -45,7 +45,7 @@ El entregable no es "el proyecto compila", es "los tokens de color son demostrab
   - `src/lib/color.ts` exporta `parseOklch(value: string): Oklch`, `oklchToSrgb(c: Oklch): [number, number, number]`, `contrast(a: Oklch, b: Oklch): number`, y el tipo `Oklch = { l: number; c: number; h: number }`.
   - `src/styles/tokens.css` define el bloque `@theme` con todos los tokens de `DESIGN.md`. Las tareas siguientes importan este archivo y usan las utilidades de Tailwind derivadas (`bg-bg`, `text-ink`, `border-line`, etc.).
 
-- [ ] **Step 1: Crear `package.json`**
+- [x] **Step 1: Crear `package.json`**
 
 Se escribe a mano en vez de usar `pnpm create astro` porque el directorio ya tiene contenido (`docs/`, `src/assets/`, los `.md` de la raíz) y el scaffolder pide confirmación interactiva sobre un directorio no vacío.
 
@@ -75,7 +75,7 @@ Se escribe a mano en vez de usar `pnpm create astro` porque el directorio ya tie
 }
 ```
 
-- [ ] **Step 2: Crear `astro.config.mjs`**
+- [x] **Step 2: Crear `astro.config.mjs`**
 
 Tailwind 4 se conecta como plugin de Vite. La integración `@astrojs/tailwind` es de la era de Tailwind 3 y no se usa aquí.
 
@@ -91,7 +91,7 @@ export default defineConfig({
 });
 ```
 
-- [ ] **Step 3: Crear `tsconfig.json`**
+- [x] **Step 3: Crear `tsconfig.json`**
 
 ```json
 {
@@ -101,7 +101,7 @@ export default defineConfig({
 }
 ```
 
-- [ ] **Step 4: Crear `vitest.config.ts`**
+- [x] **Step 4: Crear `vitest.config.ts`**
 
 ```ts
 import { defineConfig } from 'vitest/config';
@@ -114,12 +114,12 @@ export default defineConfig({
 });
 ```
 
-- [ ] **Step 5: Instalar dependencias**
+- [x] **Step 5: Instalar dependencias**
 
 Run: `pnpm install`
 Expected: instala sin errores. Verificar que `astro` quedó en versión 7.x con `pnpm list astro`.
 
-- [ ] **Step 6: Escribir el test que falla**
+- [x] **Step 6: Escribir el test que falla**
 
 Este test es la razón de ser de la tarea. Convierte cada token OKLCH a sRGB, calcula el contraste WCAG y verifica los mínimos. Los valores esperados salen de la tabla ya calculada en `DESIGN.md`.
 
@@ -172,12 +172,12 @@ describe('guardas del sistema', () => {
 });
 ```
 
-- [ ] **Step 7: Correr el test y verificar que falla**
+- [x] **Step 7: Correr el test y verificar que falla**
 
 Run: `pnpm test`
 Expected: FAIL. El error es de resolución de módulo — `Cannot find module '../src/lib/color'` — porque ni `color.ts` ni `tokens.css` existen todavía.
 
-- [ ] **Step 8: Escribir `src/lib/color.ts`**
+- [x] **Step 8: Escribir `src/lib/color.ts`**
 
 Conversión OKLab → sRGB lineal → sRGB con gamma, y luminancia relativa WCAG. Sin dependencias.
 
@@ -227,7 +227,7 @@ export function contrast(a: Oklch, b: Oklch): number {
 }
 ```
 
-- [ ] **Step 9: Escribir `src/styles/tokens.css`**
+- [x] **Step 9: Escribir `src/styles/tokens.css`**
 
 Los valores se copian literalmente de `DESIGN.md`. En Tailwind 4, `@theme` genera las utilidades: `--color-bg` produce `bg-bg`, `text-bg`, `border-bg`.
 
@@ -280,18 +280,18 @@ Los valores se copian literalmente de `DESIGN.md`. En Tailwind 4, `@theme` gener
 }
 ```
 
-- [ ] **Step 10: Correr el test y verificar que pasa**
+- [x] **Step 10: Correr el test y verificar que pasa**
 
 Run: `pnpm test`
 Expected: PASS. Los diez casos verdes.
 
 Si algún caso falla, el token está mal copiado de `DESIGN.md`. Se corrige el token, no el test: la tabla de `DESIGN.md` es la fuente de verdad y sus ratios ya fueron calculados.
 
-- [ ] **Step 11: Añadir `dist/` y `.astro/` al `.gitignore`**
+- [x] **Step 11: Añadir `dist/` y `.astro/` al `.gitignore`**
 
 Ya están en el `.gitignore` existente. Verificar con `grep -E 'dist|\.astro' .gitignore` y añadir solo lo que falte.
 
-- [ ] **Step 12: Commit**
+- [x] **Step 12: Commit**
 
 ```bash
 git add package.json pnpm-lock.yaml astro.config.mjs tsconfig.json vitest.config.ts src/lib/color.ts src/styles/tokens.css tests/tokens.test.ts
@@ -319,14 +319,14 @@ its ban as a text color, and no light-theme block may exist."
 - Consumes: `src/styles/tokens.css` de la Task 1.
 - Produces: los tokens `--font-display`, `--font-body`, `--font-micro` y la escala `--text-*`, disponibles como utilidades de Tailwind (`font-display`, `text-step-4`).
 
-- [ ] **Step 1: Instalar Sono desde npm**
+- [x] **Step 1: Instalar Sono desde npm**
 
 Sono está en Google Fonts y por tanto en Fontsource. Es la única de las tres que se instala.
 
 Run: `pnpm add @fontsource-variable/sono`
 Expected: instala `@fontsource-variable/sono@^5.3.0`.
 
-- [ ] **Step 2: Descargar Cabinet Grotesk y Supreme a mano**
+- [x] **Step 2: Descargar Cabinet Grotesk y Supreme a mano**
 
 **Este paso es manual y no se puede automatizar.** Ninguna de las dos está en npm ni en Google Fonts: son de Fontshare (Indian Type Foundry), gratuitas para uso personal y comercial, pero solo por descarga desde el sitio.
 
@@ -341,7 +341,7 @@ No copiar `.ttf`, `.otf` ni `.woff`: pesan más y ningún navegador vigente los 
 
 Verificar: `ls src/fonts/` muestra exactamente esos tres archivos.
 
-- [ ] **Step 3: Escribir el test que falla**
+- [x] **Step 3: Escribir el test que falla**
 
 Create `tests/fonts.test.ts`:
 
@@ -397,12 +397,12 @@ describe('tipografías', () => {
 });
 ```
 
-- [ ] **Step 4: Correr el test y verificar que falla**
+- [x] **Step 4: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/fonts.test.ts`
 Expected: FAIL con `ENOENT: no such file or directory, open 'src/styles/fonts.css'`.
 
-- [ ] **Step 5: Escribir `src/styles/fonts.css`**
+- [x] **Step 5: Escribir `src/styles/fonts.css`**
 
 ```css
 @font-face {
@@ -432,7 +432,7 @@ Expected: FAIL con `ENOENT: no such file or directory, open 'src/styles/fonts.cs
 
 Sono no necesita `@font-face` propio: Fontsource trae el suyo y se importa desde el layout en la Task 3.
 
-- [ ] **Step 6: Añadir los tokens de tipografía a `src/styles/tokens.css`**
+- [x] **Step 6: Añadir los tokens de tipografía a `src/styles/tokens.css`**
 
 Dentro del bloque `@theme` ya existente, después de los radios:
 
@@ -453,12 +453,12 @@ Dentro del bloque `@theme` ya existente, después de los radios:
   --text-display: clamp(2.5rem, 6vw, 4.5rem);
 ```
 
-- [ ] **Step 7: Correr el test y verificar que pasa**
+- [x] **Step 7: Correr el test y verificar que pasa**
 
 Run: `pnpm test`
 Expected: PASS. Los tests de la Task 1 siguen verdes.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add src/fonts src/styles/fonts.css src/styles/tokens.css tests/fonts.test.ts package.json pnpm-lock.yaml
@@ -487,7 +487,7 @@ in the stylesheets."
 - Consumes: `src/styles/tokens.css` y `src/styles/fonts.css`.
 - Produces: `Base.astro`, que acepta las props `{ title: string; description: string }` y renderiza el documento completo. Todas las páginas de fases posteriores lo usan.
 
-- [ ] **Step 1: Escribir el test que falla**
+- [x] **Step 1: Escribir el test que falla**
 
 Astro expone una API de contenedor para renderizar componentes fuera de un servidor. Se usa para verificar la estructura del layout.
 
@@ -530,7 +530,7 @@ describe('layout base', () => {
 });
 ```
 
-- [ ] **Step 2: Escribir el test de reglas globales**
+- [x] **Step 2: Escribir el test de reglas globales**
 
 Añadir a `tests/layout.test.ts`, al final del archivo:
 
@@ -578,12 +578,12 @@ describe('reglas del sistema', () => {
 });
 ```
 
-- [ ] **Step 3: Correr el test y verificar que falla**
+- [x] **Step 3: Correr el test y verificar que falla**
 
 Run: `pnpm test tests/layout.test.ts`
 Expected: FAIL. No existe `src/layouts/Base.astro`.
 
-- [ ] **Step 4: Escribir `src/styles/global.css`**
+- [x] **Step 4: Escribir `src/styles/global.css`**
 
 ```css
 @import './tokens.css';
@@ -663,7 +663,7 @@ a {
 }
 ```
 
-- [ ] **Step 5: Escribir `src/layouts/Base.astro`**
+- [x] **Step 5: Escribir `src/layouts/Base.astro`**
 
 ```astro
 ---
@@ -699,7 +699,7 @@ const { title, description } = Astro.props;
 </html>
 ```
 
-- [ ] **Step 6: Escribir `src/pages/index.astro`**
+- [x] **Step 6: Escribir `src/pages/index.astro`**
 
 Una página mínima que prueba que el sistema se ve. Se reemplaza por completo en la Fase 3.
 
@@ -717,12 +717,12 @@ import Base from '../layouts/Base.astro';
 </Base>
 ```
 
-- [ ] **Step 7: Correr los tests y verificar que pasan**
+- [x] **Step 7: Correr los tests y verificar que pasan**
 
 Run: `pnpm test`
 Expected: PASS, toda la suite.
 
-- [ ] **Step 8: Verificar que el proyecto compila y se ve**
+- [x] **Step 8: Verificar que el proyecto compila y se ve**
 
 Run: `pnpm build`
 Expected: build exitoso, genera `dist/`.
@@ -730,7 +730,7 @@ Expected: build exitoso, genera `dist/`.
 Run: `pnpm dev` y abrir el URL que imprime.
 Expected: fondo casi negro con tinte verde-azul, titular en Cabinet Grotesk. Presionar Tab al cargar debe revelar el enlace "Saltar al contenido" en la esquina superior izquierda.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add src/styles/global.css src/layouts/Base.astro src/pages/index.astro tests/layout.test.ts
@@ -756,7 +756,7 @@ no disabled outlines, no gradient text."
 - Consumes: el script `build` de `package.json` (Task 1) y el sitio compilable (Task 3).
 - Produces: el sitio publicado en `https://eddieberu.github.io`. Las fases posteriores añaden un cron a este mismo workflow para refrescar los datos de GitHub.
 
-- [ ] **Step 1: Escribir el workflow**
+- [x] **Step 1: Escribir el workflow**
 
 Create `.github/workflows/deploy.yml`:
 
@@ -817,7 +817,7 @@ jobs:
 
 Los tests corren antes de compilar a propósito: un token que falle contraste tumba el deploy en vez de publicarse.
 
-- [ ] **Step 2: Activar GitHub Pages con origen en Actions**
+- [x] **Step 2: Activar GitHub Pages con origen en Actions**
 
 Run:
 
@@ -833,7 +833,7 @@ Expected: sin error. El primer comando crea la configuración de Pages; si ya ex
 
 Verificar: `gh api repos/EddieBeru/EddieBeru.github.io/pages --jq '.build_type'` devuelve `workflow`.
 
-- [ ] **Step 3: Commit y push**
+- [x] **Step 3: Commit y push**
 
 ```bash
 git add .github/workflows/deploy.yml
@@ -845,7 +845,7 @@ same workflow."
 git push origin main
 ```
 
-- [ ] **Step 4: Verificar el despliegue**
+- [x] **Step 4: Verificar el despliegue**
 
 Run: `gh run watch`
 Expected: los jobs `build` y `deploy` terminan en verde.
@@ -866,3 +866,17 @@ El sitio está vivo, se despliega solo en cada push a `main`, y el sistema de di
 Lo que **no** existe todavía y llega en fases siguientes: colecciones de contenido, páginas de proyecto, el home real, los widgets, la simulación en vivo, el guestbook y el README de perfil sincronizado.
 
 Antes de arrancar la Fase 2 conviene resolver el paso manual de la Task 2: sin los `.woff2` de Fontshare en `src/fonts/`, la suite no pasa y el deploy no corre.
+
+---
+
+## Ejecutado el 2026-07-25
+
+Las cuatro tareas quedaron hechas y el sitio está vivo en `https://eddieberu.github.io`. Cinco cosas salieron distinto de lo planeado:
+
+1. **El paso manual de la Task 2 no hizo falta.** Fontshare expone `https://api.fontshare.com/v2/fonts/download/<familia>`, que devuelve el zip completo. Los tres `.woff2` se extrajeron de ahí. El EULA de ambas familias quedó versionado en `docs/licencias/`.
+2. **`vitest.config.ts` va por `getViteConfig` de `astro/config`.** Con `defineConfig` de Vitest a secas, el plugin de Astro no se carga y `tests/layout.test.ts` muere con `Failed to parse source for import analysis` al tratar el template `.astro` como JS.
+3. **La URL canónica cae al origen de la petición cuando no hay `Astro.site`.** La API de contenedor no configura sitio, así que `new URL(pathname, Astro.site)` lanzaba `TypeError: Invalid URL` en los tests. Hay un test que exige que la canónica siempre salga.
+4. **pnpm 11 movió la aprobación de scripts a `pnpm-workspace.yaml`.** El archivo lleva `allowBuilds: { esbuild: true }`; sin eso el postinstall de esbuild queda bloqueado. El workflow usa `version: 11` en `pnpm/action-setup`, no 10, para no desalinearse del lockfile.
+5. **Pages ya existía con `build_type: legacy`.** El `POST` devolvió `409 GitHub Pages is already enabled`; el `PUT` lo pasó a `workflow`.
+
+Pendiente de revisión humana: nadie ha visto el sitio en un navegador. Falta confirmar a ojo que el fondo, el titular en Cabinet Grotesk y el enlace de saltar al contenido (visible al presionar Tab) se ven como deben.
